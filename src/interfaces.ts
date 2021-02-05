@@ -1,26 +1,26 @@
 interface ResolveContext {
     checked: Set<string>|Set<unknown>;
 }
-export { ResolveContext }
+export type { ResolveContext }
 
 interface RunContext {
     cwd: string;
     shell: boolean;
     resources: Set<Deno.Closer>|Set<unknown>;
 }
-export { RunContext }
+export type { RunContext }
 
 interface Command {
     resolveRef(tasks: Tasks, context: ResolveContext): Command;
     run(args: string[], context: RunContext): Promise<void>;
 }
-export { Command }
+export type { Command }
 
 type Tasks = { [name: string]: Command };
-export { Tasks }
+export type { Tasks }
 
 interface RunOptions {
     cwd?: string;
     shell?: boolean;
 }
-export { RunOptions }
+export type { RunOptions }
